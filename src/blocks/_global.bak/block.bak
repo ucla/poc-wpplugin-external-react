@@ -1,0 +1,12 @@
+{
+    "name": "create-block/create-block",
+    "title": "UCLA",
+    "category": "widgets",
+    "icon": "welcome-learn-more",
+    "description": "UCLA's web component library block plugin for WordPress.",
+    "textdomain": "ucla-global-styles-block",
+    "supports": {
+        "html": false
+    },
+    "editorScript": "file:./index.js"
+}
