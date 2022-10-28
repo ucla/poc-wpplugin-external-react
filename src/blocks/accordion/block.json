@@ -23,5 +23,4 @@
     "editorStyle": "file:./index.css",
     "script": "wp-element",
     "viewScript": "file:./view.js"
-
 }

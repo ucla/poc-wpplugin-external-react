@@ -26,7 +26,7 @@ import { RichText, InnerBlocks } from '@wordpress/block-editor';
  * components instead of global css. Each component should have it's own CSS or import from global into component.
  */
 //import Accordion from 'wcl-react-poc/src/components/Accordion';
-import Accordion from './Accordion.component';
+import Accordion from './Accordion.function';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -48,8 +48,13 @@ import './editor.scss';
  * @param {string} [props.className] Class name generated for the block.
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, setAttributes, className, clientId }) {
-    const { title, blockId } = attributes;
+
+export default function Edit({ attributes, setAttributes, clientId }) {
+    const {
+        title = '',
+        blockId,
+        className = false
+    } = attributes;
 
     React.useEffect(() => {
         if (!blockId) {
@@ -77,7 +82,8 @@ export default function Edit({ attributes, setAttributes, className, clientId })
             <Accordion
                 className={className}
                 blockId={blockId}
-                title={richTextElement}>
+                title={richTextElement}
+            >
                 <InnerBlocks />
             </Accordion>
         </div>
