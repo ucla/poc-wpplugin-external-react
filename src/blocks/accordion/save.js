@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { RichText, InnerBlocks } from '@wordpress/block-editor';
-import parseHTML from 'html-react-parser';
-import * as ReactDOMServer from 'react-dom/server';
 
 /** Node Modules is excluded in orig webpack config. Added include of wcl components poc found in node-modules
  * so that repo could be included as a dependency using NPM as is currently done except for React
@@ -33,10 +31,9 @@ const save = ({ attributes: { title, blockId }, className }) => {
         <RichText.Content tagName="span"
             value={title} />
     )
-    const content = <InnerBlocks.Content />
 
     return (
-        <div data-reactroot={blockId}>
+        <div data-accordionroot={blockId}>
             <Accordion className={className}
                 title={richTextElement}>
                 <InnerBlocks.Content />

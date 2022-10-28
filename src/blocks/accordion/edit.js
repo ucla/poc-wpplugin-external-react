@@ -73,9 +73,10 @@ export default function Edit({ attributes, setAttributes, className, clientId })
 
     /** #Example of 3rd-party React component being used. - El */
     return (
-        <div data-reactroot={clientId}>
+        <div data-accordionroot={clientId}>
             <Accordion
                 className={className}
+                blockId={blockId}
                 title={richTextElement}>
                 <InnerBlocks />
             </Accordion>

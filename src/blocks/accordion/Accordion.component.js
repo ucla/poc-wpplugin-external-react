@@ -30,12 +30,11 @@ export class Accordion extends Component {
             <section className={`accordion${className ? ' ' + className : ''}`} {...rest}>
                 <dl>
                     <button onMouseDown={this.toggleContentDisplay} className="accordion__title" aria-expanded="false">
-                        <dt>
-                            {title}
-                        </dt>
+                        <dt dangerouslySetInnerHTML={{ __html: title }} />
                     </button>
-                    <dd className="accordion__content" style={{ display: `${showBody ? 'block' : 'none'}` }}>
-                        {children}
+                    <dd className="accordion__content" style={{ display: `${showBody ? 'block' : 'none'}` }}
+                        dangerouslySetInnerHTML={{ __html: children }}
+                    >
                     </dd>
                 </dl>
             </section>
