@@ -1,13 +1,13 @@
-=== PROOFS of CONCEPT - UCLA WCL Blocks WPPlugin ===
-Contributors: UCLA Strategic Communications Development Department / [esat@stratcomm.ucla.edu](mailto:esat@stratcomm.ucla.edu)
+# PROOFS of CONCEPT - UCLA WCL Blocks WPPlugin
+* Contributors: UCLA Strategic Communications Development Department / [esat@stratcomm.ucla.edu](mailto:esat@stratcomm.ucla.edu)
 
 
-== Proof of Concept Objective  ==
-Objectives and findings are well documented in the draft statement of work found *[here](https://docs.google.com/document/d/1yfBaJrOfMidvoeFCXxHJiUc2WJYmrrY04LlNQU-8cEI/edit?pli=1#)*.
+## == Proof of Concept Objective  ==
+Objectives and findings are well documented in the draft statement of work found here: https://docs.google.com/document/d/1yfBaJrOfMidvoeFCXxHJiUc2WJYmrrY04LlNQU-8cEI/edit?pli=1#.
 
 Additionally, **please read comments** in each of the block files for additional details.
 
-**IMPORTANT:** Proofs of concept are executed in order to fully understand potential paths forward and are **not** indicative of concreate decisions or recommendations.
+### **IMPORTANT:** Proofs of concept are executed in order to fully understand potential paths forward and are **not** indicative of concreate decisions or recommendations.
 
 1. To discover any differences in block plugin development methodologies that may exist between the current build platform and the latest available platform.
 
@@ -22,16 +22,16 @@ Additionally, **please read comments** in each of the block files for additional
 3. To determine if page templates can be delivered through a plugin without being coupled with a theme. By making all blocks and the default WCL header and footer (molecule/block pattern) available as blocks and page templates through a plugin, site administrators would have the flexibility of using a theme of their own choosing. This could increase adoption of the web component library and simplify administration and code maintenance.
 
 
-== Note ==
+## == Note ==
 The WCL React components would ordinarily be located under the node_modules folder and added
 through the repository referenced in the package.json just like the current WCL repo is included in the current plugin. To make it easier for the POC I
 moved the React POC folder ('wcl-react-poc') to the root of the project folder so that I could save it to the POC repo.
 The package JSON references the repo for the POC so that NPM would not delete the folder during testing. 
 
-== To Run ==
+## == To Run ==
 1. Download a zip of the code from GitHub and unzip in a local development folder, e.g., '/sites/sandbox/', etc.
 
-2. Follow the instructions *[here](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/)*
+2. Follow the instructions here: https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/
 
 3. Activate the POC plugin in the WordPress admin console.
 
