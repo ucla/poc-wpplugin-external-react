@@ -21,12 +21,20 @@ import { RichText, InnerBlocks } from '@wordpress/block-editor';
  * the browser. https://www.cssigniter.com/how-to-use-external-react-components-in-your-gutenberg-blocks/
  */
 
-/** Node Modules is excluded in orig webpack config. Added include of wcl components poc found in node-modules
+/** El Note Node Modules are excluded in orig webpack config. Added include of wcl components poc found in node-modules
  * so that repo could be included as a dependency using NPM as is currently done except for React
  * components instead of global css. Each component should have it's own CSS or import from global into component.
- */
-//import Accordion from 'wcl-react-poc/src/components/Accordion';
-import Accordion from './Accordion.function';
+ * 
+ * NOTE: The WCL React components would ordinarily be located under /node_modules and added
+ * through the repository referenced in the package.json just like the current WCL repo is currently included in the existing plugin. To make it easier for the POC I
+ * moved the package to the root of the project folder so that I could save it to the POC repo.
+ * 
+*/
+
+import Accordion from '/wcl-react-poc/src/components/Accordion';
+
+// used for easier testing
+//import Accordion from './Accordion.function';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.

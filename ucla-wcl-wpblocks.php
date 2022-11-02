@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name:       UCLA WCL Blocks and Templates
- * Description:       UCLA branded and ADA accessible web components available as blocks and page templates.
+ * Description:       Proof of Concept - UCLA branded and ADA accessible web components available as blocks and page templates.
  * Requires at least: 5.9
  * Requires PHP:      7.0
  * Version:           0.1.0
@@ -11,7 +11,7 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       ucla-wcl-wpblocks
  *
- * @package           ucla-wcl
+ * @package           ucla-wcl-wpblocks
  */
 
 /**

@@ -7,11 +7,14 @@ import { RichText, InnerBlocks } from '@wordpress/block-editor';
  * components instead of global css. Each component should have it's own CSS or import from global into component.
  */
 
-/** #Example of 3rd-party React component being used. - El */
-//import Accordion from 'wcl-react-poc/src/components/Accordion';
+/** 
+ * Example of 3rd-party React component being used.
+ * IMPORTANT!! Load markup only version durring save. (no interactivity aka no hooks otherwise React 321 error)
+ *  - El */
+import { AccordionMarkup } from '/wcl-react-poc/src/components/Accordion';
 
-import Accordion from './Accordion.function';
-//import App from './App'
+// used for easier testing during dev.
+//import { AccordionMarkup } from './Accordion.function';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -27,21 +30,12 @@ import Accordion from './Accordion.function';
  */
 
 /**
- * Would be great if WordPress would remove interactivity during save but allow react to be loaded
- * on front-end by default or through switch in block.json. Until then have to use viewScript to
- * reload React component.
+ * Would be great if WordPress would ignore interactivity (hooks) during save and load React components on the front end
+ * by default or through a switch value in block.json. Until then have to use viewScript to reload React component.
  * 
  */
 
-
-// if (window && window.document && window.document.body) {
-//     console.log(window.document.body)
-//     interactive = !document.body.classList.contains('wp-admin');
-// }
-
 const save = ({ attributes: { title, blockId, className } }) => {
-    let interactive = false;
-
     const richTextElement = (
         <RichText.Content tagName="span"
             value={title} />
@@ -49,13 +43,12 @@ const save = ({ attributes: { title, blockId, className } }) => {
 
     return (
         <div data-accordionroot={blockId}>
-            <Accordion
+            <AccordionMarkup
                 className={className}
                 title={richTextElement}
-                interactive={interactive}
             >
                 <InnerBlocks.Content />
-            </Accordion>
+            </AccordionMarkup>
         </div >
     );
 }

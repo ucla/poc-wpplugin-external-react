@@ -1,18 +1,19 @@
-const {hasArgInCLI, hasBabelConfig} = require('@wordpress/scripts/utils');
+const { hasArgInCLI, hasBabelConfig } = require('@wordpress/scripts/utils');
 
 const hasReactFastRefresh = hasArgInCLI('--hot') && !isProduction;
 
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 
 module.exports = {
-    ... defaultConfig,
+    ...defaultConfig,
 
     module: {
         rules: [
-            ... defaultConfig.module.rules, {
+            ...defaultConfig.module.rules, {
                 test: /\.(j|t)sx?$/,
                 // exclude: /node_modules/,
-                include: [__dirname + '/node_modules/wcl-react-poc/src/'],
+                //                include: [__dirname + '/node_modules/wcl-react-poc/src/'],
+                include: [__dirname + '/wcl-react-poc/src/'],
                 use: [
                     {
                         loader: require.resolve('babel-loader'),

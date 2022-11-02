@@ -1,55 +1,29 @@
-=== Ucla Wcl Blocks ===
-Contributors:      The WordPress Contributors
-Tags:              block
-Tested up to:      6.0
-Stable tag:        0.1.0
-License:           GPL-2.0-or-later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
-
-Example block scaffolded with Create Block tool.
-
-== Description ==
-
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
-
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
-
-== Installation ==
-
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload the plugin files to the `/wp-content/plugins/ucla-wcl-wpblocks` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
+=== PROOFS of CONCEPT - UCLA WCL Blocks WPPlugin ===
+Contributors: UCLA Strategic Communications Development Department / [esat@stratcomm.ucla.edu](mailto:esat@stratcomm.ucla.edu)
 
 
-== Frequently Asked Questions ==
+== Proof of Concept Objective  ==
+Objectives and findings are well documented in the draft statement of work found *[here](https://docs.google.com/document/d/1yfBaJrOfMidvoeFCXxHJiUc2WJYmrrY04LlNQU-8cEI/edit?pli=1#)*.
 
-= A question that someone might have =
+Additionally, **please read comments** in each of the block files for additional details.
 
-An answer to that question.
+**IMPORTANT:** Proofs of concept are executed in order to fully understand potential paths forward and are **not** indicative of concreate decisions or recommendations.
 
-= What about foo bar? =
+1. To discover any differences in block plugin development methodologies that may exist between the current build platform and the latest available platform.
 
-Answer to foo bar dilemma.
+2.  Determine if external React components can be consumed by WordPress React blocks in order to reduce the number of instances where WCL markup is maintained and to benefit from the fact that WordPress is already using React in the Gutenberg editor. (See the accordion component '/src/blocks/accordion')
+    2a. Determine if the same component can be loaded on from front-end. It was determined that this is possible using the viewScript. ('/src/blocks/accordion/view.js')
+    
+    Finding: As of version 6.0, WordPress delivers the markup output of the React component as static HTML by default. If the component is interactive, e.g., the accordion component,
+    a ‘viewScript’ can be written to convert the static component to React on the front-end thereby leveraging the existing state-based React component interactivity or by using the
+    vanilla JavaScript from the HTML version of the WCL component in the ‘viewScript’. **SEO** is not affected by loading a React Component through the viewScript because it occurs after
+    page load and is executed by the browser JavaScript engine. Crawlers ingest the static version of the component as loaded by the WordPress engine as is done today.
 
-== Screenshots ==
+3. To determine if page templates can be delivered through a plugin without being coupled with a theme. By making all blocks and the default WCL header and footer (molecule/block pattern) available as blocks and page templates through a plugin, site administrators would have the flexibility of using a theme of their own choosing. This could increase adoption of the web component library and simplify administration and code maintenance.
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
 
-== Changelog ==
-
-= 0.1.0 =
-* Release
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
+== Note ==
+The WCL React components would ordinarily be located under the node_modules folder and added
+through the repository referenced in the package.json just like the current WCL repo is included in the current plugin. To make it easier for the POC I
+moved the React POC folder ('wcl-react-poc') to the root of the project folder so that I could save it to the POC repo.
+The package JSON references the repo for the POC so that NPM would not delete the folder during testing. 
