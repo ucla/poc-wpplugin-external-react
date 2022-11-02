@@ -27,3 +27,17 @@ The WCL React components would ordinarily be located under the node_modules fold
 through the repository referenced in the package.json just like the current WCL repo is included in the current plugin. To make it easier for the POC I
 moved the React POC folder ('wcl-react-poc') to the root of the project folder so that I could save it to the POC repo.
 The package JSON references the repo for the POC so that NPM would not delete the folder during testing. 
+
+== To Run ==
+1. Download a zip of the code from GitHub and unzip in a local development folder, e.g., '/sites/sandbox/', etc.
+
+2. Follow the instructions *[here](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/)*
+
+3. Activate the POC plugin in the WordPress admin console.
+
+4. Add the accordion block to a page and save the page.
+
+5. Refresh the editor page to see that the block that was added with no console errors.
+
+6. View the published page and note that the accordion operates correctly. The component on the front-end is now React. Again, the main purpose of this POC was to see if WordPress blocks could consumed
+externally sourced React components. Determining if React could be loaded on the front-end was secondary. Again, SEO is not affected. See notes in '/src/blocks/accordion/view.js'
