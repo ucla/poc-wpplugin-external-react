@@ -3,7 +3,7 @@
 
 
 ## Proof of Concept Objective
-Objectives and findings are well documented in the draft statement of work found *[here]https://docs.google.com/document/d/1yfBaJrOfMidvoeFCXxHJiUc2WJYmrrY04LlNQU-8cEI/edit?pli=1#)*.
+Objectives and findings are well documented in the draft statement of work found *[here](https://docs.google.com/document/d/1yfBaJrOfMidvoeFCXxHJiUc2WJYmrrY04LlNQU-8cEI/edit?pli=1#)*.
 
 Additionally, **please read comments** in each of the block files for additional details.
 
@@ -34,7 +34,7 @@ The package JSON references the repo for the POC so that NPM would not delete th
 ## To Run
 1. Download a zip of the code from GitHub and unzip in a local development folder, e.g., '/sites/sandbox/', etc.
 
-2. Follow the instructions [here](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/)
+2. Follow the instructions found [here](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/)
 
 3. Activate the POC plugin in the WordPress admin console.
 
