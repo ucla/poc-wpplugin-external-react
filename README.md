@@ -3,7 +3,7 @@
 
 
 ## Proof of Concept Objective
-Objectives and findings are well documented in the draft statement of work found *[here](https://docs.google.com/document/d/1yfBaJrOfMidvoeFCXxHJiUc2WJYmrrY04LlNQU-8cEI/edit?pli=1#)*.
+Objectives and findings are well documented in the draft statement of work found *[here](https://docs.google.com/document/d/1yfBaJrOfMidvoeFCXxHJiUc2WJYmrrY04LlNQU-8cEI/edit?pli=1#)*. (Access already granted to all UCLA staff using Google Drive)
 
 Additionally, **please read comments** in each of the block files for additional details.
 
@@ -15,7 +15,7 @@ Additionally, **please read comments** in each of the block files for additional
     
     2a. Determine if the same component can be loaded on the front-end. It was determined that this is possible using the viewScript. ('/src/blocks/accordion/view.js')
     
-    Finding: As of version 6.0, WordPress delivers the markup output of the React component as static HTML by default. If the component is interactive, e.g., the accordion component,
+    2a Finding: As of version 6.0, WordPress delivers the markup output of the React component as static HTML by default. If the component is interactive, e.g., the accordion component,
     a ‘viewScript’ can be written to convert the static component to React on the front-end thereby leveraging the existing state-based React component interactivity or by using the
     vanilla JavaScript from the HTML version of the WCL component in the ‘viewScript’.
     
@@ -40,7 +40,6 @@ The package JSON references the repo for the POC so that NPM would not delete th
 
 4. Add the accordion block to a page and save the page.
 
-5. Refresh the editor page to see that the block that was added with no console errors.
+5. Refresh the editor page to see that the block was added with no console errors.
 
-6. View the published page and note that the accordion operates correctly. The component on the front-end is now React. Again, the main purpose of this POC was to see if WordPress blocks could consumed
-externally sourced React components. Determining if React could be loaded on the front-end was secondary. Again, SEO is not affected. See notes in '/src/blocks/accordion/view.js'
+6. View the published page and note that the accordion operates correctly. The component on the front-end is now React. Again, the main purpose of this POC was to see if WordPress blocks could consume externally sourced React components. Determining if React could be loaded on the front-end was secondary and not required to use external React components. Please see the statement of work for more details. Again, SEO is not affected. See notes above and in '/src/blocks/accordion/view.js'
