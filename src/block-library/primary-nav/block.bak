@@ -1,0 +1,26 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "ucla-wcl-wpblocks/primary-nav",
+    "version": "0.1.0",
+    "title": "UCLA WCL Primary Navigation",
+    "category": "ucla-wcl-wpblocks",
+    "icon": "smiley",
+    "description": "Primary navigation using UCLA web component library elements. https://webcomponents.ucla.edu/build/1.0.0/components/detail/navigation--primary.html",
+    "supports": {
+        "html": false
+    },
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "blockId": {
+            "type": "string"
+        }
+    },
+    "textdomain": "ucla-wcl-wpblocks",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "script": "wp-element",
+    "viewScript": "file:./view.js"
+}

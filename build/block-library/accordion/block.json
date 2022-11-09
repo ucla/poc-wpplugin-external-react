@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "ucla-wcl-wpblocks/accordion",
+  "version": "0.1.0",
+  "title": "UCLA WCL Accordion",
+  "category": "ucla-wcl-wpblocks",
+  "icon": "chevronUpDown",
+  "description": "UCLA accordion web component.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "blockId": {
+      "type": "string"
+    }
+  },
+  "textdomain": "ucla-wcl-wpblocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "script": "wp-element",
+  "viewScript": "file:./view.js"
+}

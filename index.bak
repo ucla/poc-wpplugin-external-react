@@ -1,0 +1,23 @@
+/**
+ * 
+ * Possibly able to run block code outside of the editor. Good for dev efficiency. - ESat
+ * Review here:  https://neliosoftware.com/blog/how-to-work-with-wordpress-blocks-outside-gutenberg-with-node-js/
+ * 
+ */
+
+const {
+    registerCoreBlocks
+} = require('@wordpress/block-library');
+const {
+    createBlock,
+    serialize
+} = require('@wordpress/blocks');
+registerCoreBlocks();
+const myBlock = createBlock(
+    'core/paragraph',
+    {
+        content: 'This is a block created programmatically',
+    }
+);
+const serializedBlock = serialize(myBlock);
+console.log(serializedBlock);

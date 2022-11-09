@@ -24,7 +24,7 @@
 
 $ucla_wcl_plugin_dir = plugin_dir_path(__FILE__);
 $ucla_wcl_plugin_url = plugin_dir_url(__FILE__);
-$ucla_wcl_plugin_blocks_dir = $ucla_wcl_plugin_dir . 'build/blocks/';
+$ucla_wcl_plugin_blocks_dir = $ucla_wcl_plugin_dir . 'build/block-library/';
 $ucla_wcl_text_domain = 'ucla-wcl-wpblocks';
 
 function ucla_wcl_wpblocks_editor_assets()
@@ -43,11 +43,11 @@ add_action('enqueue_block_assets', 'ucla_wcl_wpblocks_editor_assets');
 function create_block_ucla_wcl_blocks_block_init()
 {
 	global $ucla_wcl_plugin_blocks_dir;
+	$block_paths = ['accordion', 'primary-nav', 'widgetone', 'widgettwo', 'widgetthree'];
 
-	register_block_type_from_metadata($ucla_wcl_plugin_blocks_dir . "widgetone/");
-	register_block_type_from_metadata($ucla_wcl_plugin_blocks_dir . "widgettwo/");
-	register_block_type_from_metadata($ucla_wcl_plugin_blocks_dir . "widgetthree/");
-	register_block_type_from_metadata($ucla_wcl_plugin_blocks_dir . "accordion/");
+	foreach ($block_paths as $block_path) {
+		register_block_type_from_metadata($ucla_wcl_plugin_blocks_dir . $block_path);
+	}
 }
 
 add_action('init', 'create_block_ucla_wcl_blocks_block_init');
@@ -56,24 +56,29 @@ add_action('init', 'create_block_ucla_wcl_blocks_block_init');
  * 
  * Register custom block category in editor for ease of locating
  * 
+ * IMPORTANT: Registering the UCLA WCL Blocks category replaces the exisitng array of categories and
+ * appends the existing array after the new UCLA Blocks category which places UCLA at the top
+ * of the list.
+ * 
  */
 function ucla_wcl_wpblocks_blocks_categories($categories, $post)
 {
 	global $ucla_wcl_text_domain;
 
 	return array_merge(
-		$categories,
 		array(
 			array(
 				'slug' => 'ucla-wcl-wpblocks',
-				'title' => __('UCLA WCL Blocks', $ucla_wcl_text_domain),
-				'icon'  => 'wordpress',
+				'title' => __('UCLA Web Component Library', $ucla_wcl_text_domain),
+				'icon'  => 'layout',
 			),
-		)
+		),
+		$categories,
+
 	);
 }
 
-add_filter('block_categories', 'ucla_wcl_wpblocks_blocks_categories', 10, 2);
+add_filter('block_categories_all', 'ucla_wcl_wpblocks_blocks_categories', 10, 2);
 
 // /** 
 //  * See note below. Finally got working using view.js by including wp-element and using wp-element
