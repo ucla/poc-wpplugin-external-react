@@ -22,9 +22,15 @@
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 
+/** Display errors during dev */
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $ucla_wcl_plugin_dir = plugin_dir_path(__FILE__);
 $ucla_wcl_plugin_url = plugin_dir_url(__FILE__);
-$ucla_wcl_plugin_blocks_dir = $ucla_wcl_plugin_dir . 'build/block-library/';
+$ucla_wcl_plugin_blocks_build_dir = $ucla_wcl_plugin_dir . 'build/block-library/';
+$ucla_wcl_plugin_blocks_src_dir = $ucla_wcl_plugin_dir . 'src/block-library/';
 $ucla_wcl_text_domain = 'ucla-wcl-wpblocks';
 
 function ucla_wcl_wpblocks_editor_assets()
@@ -42,15 +48,26 @@ add_action('enqueue_block_assets', 'ucla_wcl_wpblocks_editor_assets');
 
 function create_block_ucla_wcl_blocks_block_init()
 {
-	global $ucla_wcl_plugin_blocks_dir;
+	global $ucla_wcl_plugin_blocks_build_dir;
+	/** 
+	 * Standard blocks registered here. Blocks that require PHP render included below.
+	 * */
 	$block_paths = ['accordion', 'primary-nav', 'widgetone', 'widgettwo', 'widgetthree'];
 
 	foreach ($block_paths as $block_path) {
-		register_block_type_from_metadata($ucla_wcl_plugin_blocks_dir . $block_path);
+		register_block_type_from_metadata($ucla_wcl_plugin_blocks_build_dir . $block_path);
 	}
 }
 
 add_action('init', 'create_block_ucla_wcl_blocks_block_init');
+
+/**
+ * 
+ * Blocks that require PHP render registered through index.php inclusion. 
+ * 
+ */
+
+include_once($ucla_wcl_plugin_blocks_src_dir . 'calendar-ics-feeds/index.php');
 
 /**
  * 

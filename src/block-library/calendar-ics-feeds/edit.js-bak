@@ -1,0 +1,102 @@
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ */
+import { __ } from '@wordpress/i18n';
+
+import { TextControl, Button } from '@wordpress/components';
+import { useEffect, useRef, useState } from '@wordpress/element';
+
+const Exit = ({ attributes, setAttributes }) => {
+    const {
+        feeds = [],
+        className = false
+    } = attributes;
+
+    console.log(feeds)
+
+    const [numFeeds, setNumFeeds] = useState(feeds.length);
+    const feedRefs = [];
+    let feedElements;
+
+    //const urlListWrapper = useRef();
+
+    // const onChangeUrl = (value) => {
+    //     // To be done - add URL validation?
+    //     if (event.keyCode === 13) {
+    //         console.log('Enter is pressed!');
+    //     }
+    //     return
+    //     if (value != '') {
+    //         feeds.push(value);
+    //         setFeedElements();
+    //     } else {
+    //         //to be done - remove URL.
+    //     }
+    //     setAttributes({ feeds: feeds });
+    // };
+
+    const saveFeed = () => {
+        if (value != '') {
+            feeds.push(value);
+            setFeedElements();
+        } else {
+            //to be done - remove URL.
+        }
+        setAttributes({ feeds: feeds });
+
+    }
+
+    const removeFeed = () => {
+
+    }
+
+    const setFeedElements = () => {
+        feedElements = feeds.map((i, url) => {
+            feedRefs[i] = useRef();
+            return (
+                <div ref={feedRefs[i]}>
+                    <TextControl
+                        value={url}
+                        onChange={onChangeUrl}
+                    />
+                    <Button onClick={function () { saveFeed(feedRefs[i]) }}>
+                        Save Feed
+                    </Button>
+                    <Button onClick={function () { removeFeed(feedRefs[i]) }}>
+                        Remove Feed
+                    </Button>
+                </div>
+            );
+        });
+        feedRefs.push(useRef());
+
+        feedElements.push(
+            <div ref={feedRefs[feedRefs.length - 1]}>
+                <TextControl
+                    value={url}
+                    onChange={onChangeUrl}
+                />
+                <Button onClick={function () { saveFeed(feedRefs[feedRefs.length - 1]) }}>
+                    Save Feed
+                </Button>
+            </div>)
+
+        console.log(numFeeds);
+        setNumFeeds(feedElements.length);
+    }
+
+    useEffect(() => {
+        setFeedElements();
+    }, []);
+
+    return (
+        <div>
+            {numFeeds && feedElements}
+
+        </div>
+    )
+}
+
+export default Exit;
