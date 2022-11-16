@@ -253,7 +253,7 @@ module.exports = window["wp"]["primitives"];
   \*********************************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"ucla-wcl-wpblocks/calendar-ics-feeds","version":"0.1.0","title":"UCLA: Calendar - ICS Feeds","category":"ucla-wcl-wpblocks","icon":"calendar","description":"UCLA calendar populated with filterable ICS feeds.","supports":{"html":false},"attributes":{"feeds":{"type":"array"}},"textdomain":"ucla-wcl-wpblocks","editorScript":"file:./index.js","editorStyle":"file:./index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"ucla-wcl-wpblocks/calendar-ics-feeds","version":"0.1.0","title":"UCLA: Calendar - ICS Feeds","category":"ucla-wcl-wpblocks","icon":"calendar","description":"UCLA calendar populated with filterable ICS feeds.","supports":{"html":false},"attributes":{"feeds":{"type":"array"}},"textdomain":"ucla-wcl-wpblocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./view.css","viewScript":"file:./view.js"}');
 
 /***/ })
 
