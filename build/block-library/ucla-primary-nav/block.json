@@ -15,6 +15,75 @@
   "attributes": {
     "ref": {
       "type": "number"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "customTextColor": {
+      "type": "string"
+    },
+    "rgbTextColor": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "customBackgroundColor": {
+      "type": "string"
+    },
+    "rgbBackgroundColor": {
+      "type": "string"
+    },
+    "showSubmenuIcon": {
+      "type": "boolean",
+      "default": true
+    },
+    "openSubmenusOnClick": {
+      "type": "boolean",
+      "default": false
+    },
+    "overlayMenu": {
+      "type": "string",
+      "default": "mobile"
+    },
+    "icon": {
+      "type": "string",
+      "default": "handle"
+    },
+    "hasIcon": {
+      "type": "boolean",
+      "default": true
+    },
+    "__unstableLocation": {
+      "type": "string"
+    },
+    "overlayBackgroundColor": {
+      "type": "string"
+    },
+    "customOverlayBackgroundColor": {
+      "type": "string"
+    },
+    "overlayTextColor": {
+      "type": "string"
+    },
+    "customOverlayTextColor": {
+      "type": "string"
+    },
+    "maxNestingLevel": {
+      "type": "number",
+      "default": 5
+    },
+    "templateLock": {
+      "type": [
+        "string",
+        "boolean"
+      ],
+      "enum": [
+        "all",
+        "insert",
+        "contentOnly",
+        false
+      ]
     }
   },
   "providesContext": {
@@ -88,7 +157,11 @@
       }
     }
   },
+  "viewScript": [
+    "file:./view.js",
+    "file:./view-modal.js"
+  ],
+  "editorScript": "file:./index.js",
   "editorStyle": "wp-block-navigation-editor",
-  "style": "wp-block-navigation",
-  "editorScript": "file:./index.js"
+  "style": "wp-block-navigation"
 }

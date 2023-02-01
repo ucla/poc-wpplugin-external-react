@@ -503,7 +503,6 @@ function block_ucla_primary_nav_from_block_get_post_ids($block)
  */
 function render_block_ucla_primary_nav($attributes, $content, $block)
 {
-	echo 'here';
 	static $seen_menu_names = array();
 
 	// Flag used to indicate whether the rendered output is considered to be
@@ -573,7 +572,6 @@ function render_block_ucla_primary_nav($attributes, $content, $block)
 		$inner_blocks            = new WP_Block_List($parsed_blocks, $attributes);
 	}
 
-	var_dump($menu_items);
 
 	// Load inner blocks from the navigation post.
 	if (array_key_exists('ref', $attributes)) {
