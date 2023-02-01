@@ -52,7 +52,7 @@ function create_block_ucla_wcl_blocks_block_init()
 	/** 
 	 * Standard blocks registered here. Blocks that require PHP render included below.
 	 * */
-	$block_paths = ['accordion', 'primary-nav', 'widgetone', 'widgettwo', 'widgetthree'];
+	$block_paths = ['accordion', 'widgetone', 'widgettwo', 'widgetthree'];
 
 	foreach ($block_paths as $block_path) {
 		register_block_type_from_metadata($ucla_wcl_plugin_blocks_build_dir . $block_path);
@@ -64,10 +64,12 @@ add_action('init', 'create_block_ucla_wcl_blocks_block_init');
 /**
  * 
  * Blocks that require PHP render registered through index.php inclusion. 
- * 
+ * !!IMPORTANT!! Blocks should only be registered through PHP or JS but not both. 
+ *   Registering through JS will cause the PHP registered callback to be ignored.
  */
 
 include_once($ucla_wcl_plugin_blocks_src_dir . 'calendar-ics-feeds/index.php');
+include_once($ucla_wcl_plugin_blocks_src_dir . 'ucla-primary-nav/index.php');
 
 /**
  * 
@@ -120,7 +122,6 @@ add_filter('block_categories_all', 'ucla_wcl_wpblocks_blocks_categories', 10, 2)
 //  * Hook the enqueue functions into the frontend
 //  */
 // add_action('enqueue_block_assets', 'ucla_wcl_wpblocks_load_view_scripts');
-
 
 
 /** 

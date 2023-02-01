@@ -1,0 +1,94 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "ucla-wcl-wpblocks/ucla-primary-nav",
+  "version": "0.1.0",
+  "title": "UCLA WCL Primary Navigation",
+  "category": "ucla-wcl-wpblocks",
+  "description": "Primary navigation using UCLA web component library elements. https://webcomponents.ucla.edu/build/1.0.0/components/detail/navigation--primary.html",
+  "keywords": [
+    "menu",
+    "navigation",
+    "links"
+  ],
+  "textdomain": "ucla-wcl-wpblocks",
+  "attributes": {
+    "ref": {
+      "type": "number"
+    }
+  },
+  "providesContext": {
+    "textColor": "textColor",
+    "customTextColor": "customTextColor",
+    "backgroundColor": "backgroundColor",
+    "customBackgroundColor": "customBackgroundColor",
+    "overlayTextColor": "overlayTextColor",
+    "customOverlayTextColor": "customOverlayTextColor",
+    "overlayBackgroundColor": "overlayBackgroundColor",
+    "customOverlayBackgroundColor": "customOverlayBackgroundColor",
+    "fontSize": "fontSize",
+    "customFontSize": "customFontSize",
+    "showSubmenuIcon": "showSubmenuIcon",
+    "openSubmenusOnClick": "openSubmenusOnClick",
+    "style": "style",
+    "orientation": "orientation",
+    "maxNestingLevel": "maxNestingLevel"
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false,
+    "inserter": true,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalFontWeight": true,
+      "__experimentalTextTransform": true,
+      "__experimentalFontFamily": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalSkipSerialization": [
+        "textDecoration"
+      ],
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    },
+    "spacing": {
+      "blockGap": true,
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "vh",
+        "vw"
+      ],
+      "__experimentalDefaultControls": {
+        "blockGap": true
+      }
+    },
+    "__experimentalLayout": {
+      "allowSwitching": false,
+      "allowInheriting": false,
+      "allowVerticalAlignment": false,
+      "default": {
+        "type": "flex"
+      }
+    },
+    "__experimentalStyle": {
+      "elements": {
+        "link": {
+          "color": {
+            "text": "inherit"
+          }
+        }
+      }
+    }
+  },
+  "editorStyle": "wp-block-navigation-editor",
+  "style": "wp-block-navigation",
+  "editorScript": "file:./index.js"
+}
