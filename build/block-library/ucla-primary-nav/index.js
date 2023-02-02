@@ -927,16 +927,16 @@ function Navigation(_ref) {
     menus: classicMenus
   } = (0,_use_navigation_entities__WEBPACK_IMPORTED_MODULE_11__["default"])();
   const [showNavigationMenuStatusNotice, hideNavigationMenuStatusNotice] = (0,_use_navigation_notice__WEBPACK_IMPORTED_MODULE_19__["default"])({
-    name: 'block-library/core/navigation/status'
+    name: 'block-library/ucla-wcl-wpblocks/ucla-primary-nav/status'
   });
   const [showClassicMenuConversionNotice, hideClassicMenuConversionNotice] = (0,_use_navigation_notice__WEBPACK_IMPORTED_MODULE_19__["default"])({
-    name: 'block-library/core/navigation/classic-menu-conversion'
+    name: 'block-library/ucla-wcl-wpblocks/ucla-primary-nav/classic-menu-conversion'
   });
   const [showMenuAutoPublishDraftNotice, hideMenuAutoPublishDraftNotice] = (0,_use_navigation_notice__WEBPACK_IMPORTED_MODULE_19__["default"])({
-    name: 'block-library/core/navigation/auto-publish-draft'
+    name: 'block-library/ucla-wcl-wpblocks/ucla-primary-nav/auto-publish-draft'
   });
   const [showNavigationMenuPermissionsNotice, hideNavigationMenuPermissionsNotice] = (0,_use_navigation_notice__WEBPACK_IMPORTED_MODULE_19__["default"])({
-    name: 'block-library/core/navigation/permissions/update'
+    name: 'block-library/ucla-wcl-wpblocks/ucla-primary-nav/permissions/update'
   });
   const {
     create: createNavigationMenu,
@@ -971,7 +971,7 @@ function Navigation(_ref) {
     isInnerBlockSelected,
     innerBlocks
   } = (0,_use_inner_blocks__WEBPACK_IMPORTED_MODULE_24__.useInnerBlocks)(clientId);
-  const hasSubmenus = !!innerBlocks.find(block => block.name === 'core/navigation-submenu');
+  const hasSubmenus = !!innerBlocks.find(block => block.name === 'ucla-wcl-wpblocks/ucla-primary-nav-submenu');
   const {
     replaceInnerBlocks,
     selectBlock,
@@ -1145,7 +1145,7 @@ function Navigation(_ref) {
       return;
     }
     (0,_utils__WEBPACK_IMPORTED_MODULE_25__.detectColors)(navRef.current, setDetectedColor, setDetectedBackgroundColor);
-    const subMenuElement = (_navRef$current = navRef.current) === null || _navRef$current === void 0 ? void 0 : _navRef$current.querySelector('[data-type="core/navigation-link"] [data-type="core/navigation-link"]');
+    const subMenuElement = (_navRef$current = navRef.current) === null || _navRef$current === void 0 ? void 0 : _navRef$current.querySelector('[data-type="ucla-wcl-wpblocks/ucla-primary-nav-link"] [data-type="ucla-wcl-wpblocks/ucla-primary-nav-link"]');
     if (subMenuElement) {
       (0,_utils__WEBPACK_IMPORTED_MODULE_25__.detectColors)(subMenuElement, setDetectedOverlayColor, setDetectedOverlayBackgroundColor);
     }
@@ -1507,9 +1507,9 @@ __webpack_require__.r(__webpack_exports__);
  * Internal dependencies
  */
 
-const ALLOWED_BLOCKS = ['core/navigation-link', 'core/search', 'core/social-links', 'core/page-list', 'core/spacer', 'core/home-link', 'core/site-title', 'core/site-logo', 'core/navigation-submenu'];
+const ALLOWED_BLOCKS = ['ucla-wcl-wpblocks/ucla-primary-nav-link', 'core/search', 'core/social-links', 'core/page-list', 'core/spacer', 'core/home-link', 'core/site-title', 'core/site-logo', 'ucla-wcl-wpblocks/ucla-primary-nav-submenu'];
 const DEFAULT_BLOCK = {
-  name: 'core/navigation-link'
+  name: 'ucla-wcl-wpblocks/ucla-primary-nav-link'
 };
 const LAYOUT = {
   type: 'default',
@@ -1546,7 +1546,7 @@ function NavigationInnerBlocks(_ref) {
     let {
       name
     } = _ref2;
-    return name === 'core/navigation-link' || name === 'core/navigation-submenu' || name === 'core/page-list';
+    return name === 'ucla-wcl-wpblocks/ucla-primary-nav-link' || name === 'ucla-wcl-wpblocks/ucla-primary-nav-submenu' || name === 'core/page-list';
   }), [blocks]);
 
   // When the block is selected itself or has a top level item selected that
@@ -2294,9 +2294,9 @@ const DRAFT_MENU_PARAMS = ['postType', 'wp_navigation', {
   per_page: -1
 }];
 const DEFAULT_BLOCK = {
-  name: 'core/navigation-link'
+  name: 'ucla-wcl-wpblocks/ucla-primary-nav-link'
 };
-const ALLOWED_BLOCKS = ['core/navigation-link', 'core/search', 'core/social-links', 'core/page-list', 'core/spacer', 'core/home-link', 'core/site-title', 'core/site-logo', 'core/navigation-submenu'];
+const ALLOWED_BLOCKS = ['ucla-wcl-wpblocks/ucla-primary-nav-link', 'core/search', 'core/social-links', 'core/page-list', 'core/spacer', 'core/home-link', 'core/site-title', 'core/site-logo', 'ucla-wcl-wpblocks/ucla-primary-nav-submenu'];
 function UnsavedInnerBlocks(_ref) {
   let {
     blocks,
@@ -2324,7 +2324,7 @@ function UnsavedInnerBlocks(_ref) {
     let {
       name
     } = _ref2;
-    return name === 'core/navigation-link' || name === 'core/navigation-submenu' || name === 'core/page-list';
+    return name === 'ucla-wcl-wpblocks/ucla-primary-nav-link' || name === 'ucla-wcl-wpblocks/ucla-primary-nav-submenu' || name === 'core/page-list';
   }), [blocks]);
 
   // The block will be disabled in a block preview, use this as a way of
@@ -2943,7 +2943,7 @@ function mapMenuItemsToBlocks(menuItems) {
       }
       return block;
     }
-    const blockType = (_menuItem$children = menuItem.children) !== null && _menuItem$children !== void 0 && _menuItem$children.length ? 'core/navigation-submenu' : 'core/navigation-link';
+    const blockType = (_menuItem$children = menuItem.children) !== null && _menuItem$children !== void 0 && _menuItem$children.length ? 'ucla-wcl-wpblocks/ucla-primary-nav-submenu' : 'ucla-wcl-wpblocks/ucla-primary-nav-link';
     const attributes = menuItemToBlockAttributes(menuItem, blockType, level);
 
     // If there are children recurse to build those nested blocks.
@@ -3017,7 +3017,7 @@ function menuItemToBlockAttributes(_ref, blockType, level) {
     type: menuItemTypeField,
     target
   } = _ref;
-  // For historical reasons, the `core/navigation-link` variation type is `tag`
+  // For historical reasons, the `ucla-wcl-wpblocks/ucla-primary-nav-link` variation type is `tag`
   // whereas WP Core expects `post_tag` as the `object` type.
   // To avoid writing a block migration we perform a conversion here.
   // See also inverse equivalent in `blockAttributesToMenuItem`.
@@ -3051,10 +3051,10 @@ function menuItemToBlockAttributes(_ref, blockType, level) {
     ...(target === '_blank' && {
       opensInNewTab: true
     }),
-    ...(blockType === 'core/navigation-submenu' && {
+    ...(blockType === 'ucla-wcl-wpblocks/ucla-primary-nav-submenu' && {
       isTopLevelItem: level === 0
     }),
-    ...(blockType === 'core/navigation-link' && {
+    ...(blockType === 'ucla-wcl-wpblocks/ucla-primary-nav-link' && {
       isTopLevelLink: level === 0
     })
   };
@@ -3122,9 +3122,8 @@ function save(_ref) {
   let {
     attributes
   } = _ref;
-  console.log('save.js');
   if (attributes.ref) {
-    console.log('save.js: attributes.ref set');
+    console.log('save.js: attributes.ref to', attributes.ref);
     // Rendering in index.php
 
     // Avoid rendering inner blocks when a ref is defined.
@@ -3135,35 +3134,6 @@ function save(_ref) {
   console.log('save.js: attributes.ref not set');
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null);
 }
-
-// /**
-//  * WordPress dependencies
-//  */
-// import { InnerBlocks } from '@wordpress/block-editor';
-
-// export default function save({ attributes }) {
-// 	/** 
-// 	 * Unfortunately cannot use the wp_navigation entity for custom navigation (as WP does) so
-// 	 * output component markup here for saving in DB.
-// 	 * 
-// 	 * Not being able to use the wp_navigation entity means the HTML for the entire navigation would
-// 	 * be saved with each iteration of a page template that has the navigation. Primary navigation should
-// 	 * be added to a page template not the content of a page. - ESat
-// 	 *  
-// 	 * */
-
-// 	if (attributes.ref) {
-// 		// Avoid rendering inner blocks when a ref is defined.
-// 		// When this id is defined the inner blocks are loaded from the
-// 		// `wp_navigation` entity rather than the hard-coded block html.
-// 		return;
-// 	}
-// 	return (
-// 		<nav tabindex="0" class="block-editor-block-list__block wp-block has-block-overlay is-layout-flex is-responsive block-editor-block-content-overlay wp-block-ucla-wcl-wpblocks-primary-nav" id="block-7fc8e8f8-33fd-4a60-896c-0f964f13dfaa" role="document" aria-label="Block: UCLA WCL Primary Navigation" data-block="7fc8e8f8-33fd-4a60-896c-0f964f13dfaa" data-type="ucla-wcl-wpblocks/primary-nav" data-title="UCLA WCL Primary Navigation" style="user-select: none;"><button type="button" aria-haspopup="true" aria-label="Open menu" class="components-button wp-block-navigation__responsive-container-open"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><rect x="4" y="7.5" width="16" height="1.5"></rect><rect x="4" y="15" width="16" height="1.5"></rect></svg></button><div class="wp-block-navigation__responsive-container" id="7fc8e8f8-33fd-4a60-896c-0f964f13dfaa-modal"><div class="wp-block-navigation__responsive-close" tabindex="-1" style="pointer-events: none;"><div class="wp-block-navigation__responsive-dialog"><button type="button" aria-label="Close menu" class="components-button wp-block-navigation__responsive-container-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M13 11.8l6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z"></path></svg></button><div class="wp-block-navigation__responsive-container-content" id="7fc8e8f8-33fd-4a60-896c-0f964f13dfaa-modal-content"><div class="wp-block-navigation__container block-editor-block-list__layout"><div class="block-editor-block-list__block wp-block wp-block-navigation-item has-link wp-block-navigation-link" id="block-13f9f4e9-84a2-4625-a9d8-1a77761db738" role="document" aria-label="Block: Custom Link" data-block="13f9f4e9-84a2-4625-a9d8-1a77761db738" data-type="core/navigation-link" data-title="Custom Link" style="pointer-events: none;"><a class="wp-block-navigation-item__content"><div role="textbox" aria-multiline="true" aria-label="Navigation link text" class="block-editor-rich-text__editable wp-block-navigation-item__label rich-text" contenteditable="false" style="white-space: pre-wrap; min-width: 1px; pointer-events: none;">About Us</div></a></div></div></div></div></div></div></nav>
-// 	)
-
-// 	//return <InnerBlocks.Content />;
-// }
 
 /***/ }),
 

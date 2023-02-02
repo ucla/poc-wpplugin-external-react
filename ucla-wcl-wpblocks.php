@@ -70,6 +70,8 @@ add_action('init', 'create_block_ucla_wcl_blocks_block_init');
 
 include_once($ucla_wcl_plugin_blocks_src_dir . 'calendar-ics-feeds/index.php');
 include_once($ucla_wcl_plugin_blocks_src_dir . 'ucla-primary-nav/index.php');
+include_once($ucla_wcl_plugin_blocks_src_dir . 'ucla-primary-nav-link/index.php');
+include_once($ucla_wcl_plugin_blocks_src_dir . 'ucla-primary-nav-submenu/index.php');
 
 /**
  * 

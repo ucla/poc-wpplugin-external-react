@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Server-side rendering of the `core/navigation` block.
+ * Server-side rendering of the `ucla-wcl-wpblocks/ucla-primary-nav` block.
  *
  * @package WordPress
  */
@@ -438,6 +438,7 @@ function block_ucla_primary_nav_get_fallback_blocks()
 
 		// Normalizing blocks may result in an empty array of blocks if they were all `null` blocks.
 		// In this case default to the (Page List) fallback.
+		echo 'here';
 		$fallback_blocks = !empty($maybe_fallback) ? $maybe_fallback : $fallback_blocks;
 	}
 
@@ -445,8 +446,9 @@ function block_ucla_primary_nav_get_fallback_blocks()
 	 * Filters the fallback experience for the Navigation block.
 	 *
 	 * Returning a falsey value will opt out of the fallback and cause the block not to render.
-	 * To customise the blocks provided return an array of blocks - these should be valid
-	 * children of the `core/navigation` block.
+	 * To customise the blocks provided return an array of blocks - these should 
+	 * be valid
+	 * children of the `ucla-wcl-wpblocks/ucla-primary-nav` block.
 	 *
 	 * @since 5.9.0
 	 *
@@ -477,6 +479,8 @@ function block_ucla_primary_nav_get_post_ids($inner_blocks)
  */
 function block_ucla_primary_nav_from_block_get_post_ids($block)
 {
+	//var_dump($block->name);
+
 	$post_ids = array();
 
 	if ($block->inner_blocks) {
@@ -493,7 +497,7 @@ function block_ucla_primary_nav_from_block_get_post_ids($block)
 }
 
 /**
- * Renders the `core/navigation` block on server.
+ * Renders the `ucla-wcl-wpblocks/ucla-primary-nav` block on server.
  *
  * @param array    $attributes The block attributes.
  * @param string   $content    The saved content.
@@ -648,18 +652,21 @@ function render_block_ucla_primary_nav($attributes, $content, $block)
 	}
 
 	// Manually add block support text decoration as CSS class.
-	$text_decoration       = _wp_array_get($attributes, array('style', 'typography', 'textDecoration'), null);
-	$text_decoration_class = sprintf('has-text-decoration-%s', $text_decoration);
+	// Not used by UCLA block? 
+	//$text_decoration       = _wp_array_get($attributes, array('style', 'typography', 'textDecoration'), null);
+	// $text_decoration_class = sprintf('has-text-decoration-%s', $text_decoration);
 
 	$colors     = block_ucla_primary_nav_build_css_colors($attributes);
 	$font_sizes = block_ucla_primary_nav_build_css_font_sizes($attributes);
 	$classes    = array_merge(
-		$colors['css_classes'],
-		$font_sizes['css_classes'],
+		// Not used by UCLA block?
+		//$colors['css_classes'],
+		// $font_sizes['css_classes'],
+		// $text_decoration ? array($text_decoration_class) : array(),
 		$is_responsive_menu ? array('is-responsive') : array(),
 		$layout_class ? array($layout_class) : array(),
 		$is_fallback ? array('is-fallback') : array(),
-		$text_decoration ? array($text_decoration_class) : array()
+		array("nav-primary") //ucla class
 	);
 
 	$post_ids = block_ucla_primary_nav_get_post_ids($inner_blocks);
@@ -670,17 +677,17 @@ function render_block_ucla_primary_nav($attributes, $content, $block)
 	$inner_blocks_html = '';
 	$is_list_open      = false;
 	foreach ($inner_blocks as $inner_block) {
-		if (('ucla-wcl-wpblocks/primary-nav-link' === $inner_block->name || 'core/home-link' === $inner_block->name || 'core/site-title' === $inner_block->name || 'core/site-logo' === $inner_block->name || 'ucla-wcl-wpblocks/primary-nav-submenu' === $inner_block->name) && !$is_list_open) {
+		if (('ucla-wcl-wpblocks/ucla-primary-nav-link' === $inner_block->name || 'core/home-link' === $inner_block->name || 'core/site-title' === $inner_block->name || 'core/site-logo' === $inner_block->name || 'ucla-wcl-wpblocks/ucla-primary-nav-submenu' === $inner_block->name) && !$is_list_open) {
 			$is_list_open       = true;
-			$inner_blocks_html .= '<ul class="wp-block-navigation__container">';
+			$inner_blocks_html .= '<ul class="nav-primary__list">';
 		}
-		if ('ucla-wcl-wpblocks/primary-nav-link' !== $inner_block->name && 'core/home-link' !== $inner_block->name && 'core/site-title' !== $inner_block->name && 'core/site-logo' !== $inner_block->name && 'ucla-wcl-wpblocks/primary-nav-submenu' !== $inner_block->name && $is_list_open) {
+		if ('ucla-wcl-wpblocks/ucla-primary-nav-link' !== $inner_block->name && 'core/home-link' !== $inner_block->name && 'core/site-title' !== $inner_block->name && 'core/site-logo' !== $inner_block->name && 'ucla-wcl-wpblocks/ucla-primary-nav-submenu' !== $inner_block->name && $is_list_open) {
 			$is_list_open       = false;
 			$inner_blocks_html .= '</ul>';
 		}
 		$inner_block_content = $inner_block->render();
 		if ('core/site-title' === $inner_block->name || ('core/site-logo' === $inner_block->name && $inner_block_content)) {
-			$inner_blocks_html .= '<li class="wp-block-navigation-item">' . $inner_block_content . '</li>';
+			$inner_blocks_html .= '<li class="nav-primary__item">' . $inner_block_content . '</li>';
 		} else {
 			$inner_blocks_html .= $inner_block_content;
 		}
@@ -803,7 +810,7 @@ add_action('init', 'register_block_ucla_primary_nav');
  */
 function block_ucla_primary_nav_typographic_presets_backcompatibility($parsed_block)
 {
-	if ('core/navigation' === $parsed_block['blockName']) {
+	if ('ucla-wcl-wpblocks/ucla-primary-nav' === $parsed_block['blockName']) {
 		$attribute_to_prefix_map = array(
 			'fontStyle'      => 'var:preset|font-style|',
 			'fontWeight'     => 'var:preset|font-weight|',

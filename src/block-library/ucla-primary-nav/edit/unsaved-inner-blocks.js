@@ -21,11 +21,11 @@ const DRAFT_MENU_PARAMS = [
 ];
 
 const DEFAULT_BLOCK = {
-	name: 'core/navigation-link',
+	name: 'ucla-wcl-wpblocks/ucla-primary-nav-link',
 };
 
 const ALLOWED_BLOCKS = [
-	'core/navigation-link',
+	'ucla-wcl-wpblocks/ucla-primary-nav-link',
 	'core/search',
 	'core/social-links',
 	'core/page-list',
@@ -33,25 +33,25 @@ const ALLOWED_BLOCKS = [
 	'core/home-link',
 	'core/site-title',
 	'core/site-logo',
-	'core/navigation-submenu',
+	'ucla-wcl-wpblocks/ucla-primary-nav-submenu',
 ];
 
-export default function UnsavedInnerBlocks( {
+export default function UnsavedInnerBlocks({
 	blocks,
 	clientId,
 	hasSavedUnsavedInnerBlocks,
 	onSave,
 	hasSelection,
-} ) {
+}) {
 	const originalBlocks = useRef();
 
-	useEffect( () => {
+	useEffect(() => {
 		// Initially store the uncontrolled inner blocks for
 		// dirty state comparison.
-		if ( ! originalBlocks?.current ) {
+		if (!originalBlocks?.current) {
 			originalBlocks.current = blocks;
 		}
-	}, [ blocks ] );
+	}, [blocks]);
 
 	// If the current inner blocks object is different in any way
 	// from the original inner blocks from the post content then the
@@ -59,23 +59,23 @@ export default function UnsavedInnerBlocks( {
 	// blocks can be considered "dirty".
 	// We also make sure the current innerBlocks had a chance to be set.
 	const innerBlocksAreDirty =
-		!! originalBlocks.current && blocks !== originalBlocks.current;
+		!!originalBlocks.current && blocks !== originalBlocks.current;
 
 	const shouldDirectInsert = useMemo(
 		() =>
 			blocks.every(
-				( { name } ) =>
-					name === 'core/navigation-link' ||
-					name === 'core/navigation-submenu' ||
+				({ name }) =>
+					name === 'ucla-wcl-wpblocks/ucla-primary-nav-link' ||
+					name === 'ucla-wcl-wpblocks/ucla-primary-nav-submenu' ||
 					name === 'core/page-list'
 			),
-		[ blocks ]
+		[blocks]
 	);
 
 	// The block will be disabled in a block preview, use this as a way of
 	// avoiding the side-effects of this component for block previews.
-	const isDisabled = useContext( Disabled.Context );
-	const savingLock = useRef( false );
+	const isDisabled = useContext(Disabled.Context);
+	const savingLock = useRef(false);
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
@@ -91,8 +91,8 @@ export default function UnsavedInnerBlocks( {
 
 	const { isSaving, draftNavigationMenus, hasResolvedDraftNavigationMenus } =
 		useSelect(
-			( select ) => {
-				if ( isDisabled ) {
+			(select) => {
+				if (isDisabled) {
 					return EMPTY_OBJECT;
 				}
 
@@ -100,7 +100,7 @@ export default function UnsavedInnerBlocks( {
 					getEntityRecords,
 					hasFinishedResolution,
 					isSavingEntityRecord,
-				} = select( coreStore );
+				} = select(coreStore);
 
 				return {
 					isSaving: isSavingEntityRecord(
@@ -116,16 +116,16 @@ export default function UnsavedInnerBlocks( {
 					),
 				};
 			},
-			[ isDisabled ]
+			[isDisabled]
 		);
 
 	const { hasResolvedNavigationMenus, navigationMenus } = useNavigationMenu();
 
 	const { create: createNavigationMenu } =
-		useCreateNavigationMenu( clientId );
+		useCreateNavigationMenu(clientId);
 
 	// Automatically save the uncontrolled blocks.
-	useEffect( () => {
+	useEffect(() => {
 		// The block will be disabled when used in a BlockPreview.
 		// In this case avoid automatic creation of a wp_navigation post.
 		// Otherwise the user will be spammed with lots of menus!
@@ -143,19 +143,19 @@ export default function UnsavedInnerBlocks( {
 			hasSavedUnsavedInnerBlocks ||
 			isSaving ||
 			savingLock.current ||
-			! hasResolvedDraftNavigationMenus ||
-			! hasResolvedNavigationMenus ||
-			! hasSelection ||
-			! innerBlocksAreDirty
+			!hasResolvedDraftNavigationMenus ||
+			!hasResolvedNavigationMenus ||
+			!hasSelection ||
+			!innerBlocksAreDirty
 		) {
 			return;
 		}
 
 		savingLock.current = true;
-		createNavigationMenu( null, blocks ).then( ( menu ) => {
-			onSave( menu );
+		createNavigationMenu(null, blocks).then((menu) => {
+			onSave(menu);
 			savingLock.current = false;
-		} );
+		});
 	}, [
 		isDisabled,
 		isSaving,
@@ -166,21 +166,21 @@ export default function UnsavedInnerBlocks( {
 		hasSelection,
 		createNavigationMenu,
 		blocks,
-	] );
+	]);
 
 	const Wrapper = isSaving ? Disabled : 'div';
 
 	return (
 		<>
-			{ isSaving ? (
+			{isSaving ? (
 				<Spinner
 					className={
 						'wp-block-navigation__uncontrolled-inner-blocks-loading-indicator'
 					}
 				/>
 			) : (
-				<Wrapper { ...innerBlocksProps } />
-			) }
+				<Wrapper {...innerBlocksProps} />
+			)}
 		</>
 	);
 }

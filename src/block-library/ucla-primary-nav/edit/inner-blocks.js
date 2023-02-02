@@ -16,7 +16,7 @@ import { useMemo } from '@wordpress/element';
 import PlaceholderPreview from './placeholder/placeholder-preview';
 
 const ALLOWED_BLOCKS = [
-	'core/navigation-link',
+	'ucla-wcl-wpblocks/ucla-primary-nav-link',
 	'core/search',
 	'core/social-links',
 	'core/page-list',
@@ -24,11 +24,11 @@ const ALLOWED_BLOCKS = [
 	'core/home-link',
 	'core/site-title',
 	'core/site-logo',
-	'core/navigation-submenu',
+	'ucla-wcl-wpblocks/ucla-primary-nav-submenu',
 ];
 
 const DEFAULT_BLOCK = {
-	name: 'core/navigation-link',
+	name: 'ucla-wcl-wpblocks/ucla-primary-nav-link',
 };
 
 const LAYOUT = {
@@ -79,8 +79,8 @@ export default function NavigationInnerBlocks({
 		() =>
 			blocks.every(
 				({ name }) =>
-					name === 'core/navigation-link' ||
-					name === 'core/navigation-submenu' ||
+					name === 'ucla-wcl-wpblocks/ucla-primary-nav-link' ||
+					name === 'ucla-wcl-wpblocks/ucla-primary-nav-submenu' ||
 					name === 'core/page-list'
 			),
 		[blocks]

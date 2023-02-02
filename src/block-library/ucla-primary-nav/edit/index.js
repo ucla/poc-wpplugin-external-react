@@ -112,24 +112,24 @@ function Navigation({
 
 	const [showNavigationMenuStatusNotice, hideNavigationMenuStatusNotice] =
 		useNavigationNotice({
-			name: 'block-library/core/navigation/status',
+			name: 'block-library/ucla-wcl-wpblocks/ucla-primary-nav/status',
 		});
 
 	const [showClassicMenuConversionNotice, hideClassicMenuConversionNotice] =
 		useNavigationNotice({
-			name: 'block-library/core/navigation/classic-menu-conversion',
+			name: 'block-library/ucla-wcl-wpblocks/ucla-primary-nav/classic-menu-conversion',
 		});
 
 	const [showMenuAutoPublishDraftNotice, hideMenuAutoPublishDraftNotice] =
 		useNavigationNotice({
-			name: 'block-library/core/navigation/auto-publish-draft',
+			name: 'block-library/ucla-wcl-wpblocks/ucla-primary-nav/auto-publish-draft',
 		});
 
 	const [
 		showNavigationMenuPermissionsNotice,
 		hideNavigationMenuPermissionsNotice,
 	] = useNavigationNotice({
-		name: 'block-library/core/navigation/permissions/update',
+		name: 'block-library/ucla-wcl-wpblocks/ucla-primary-nav/permissions/update',
 	});
 
 	const {
@@ -182,7 +182,7 @@ function Navigation({
 	} = useInnerBlocks(clientId);
 
 	const hasSubmenus = !!innerBlocks.find(
-		(block) => block.name === 'core/navigation-submenu'
+		(block) => block.name === 'ucla-wcl-wpblocks/ucla-primary-nav-submenu'
 	);
 
 	const {
@@ -418,7 +418,7 @@ function Navigation({
 			setDetectedBackgroundColor
 		);
 		const subMenuElement = navRef.current?.querySelector(
-			'[data-type="core/navigation-link"] [data-type="core/navigation-link"]'
+			'[data-type="ucla-wcl-wpblocks/ucla-primary-nav-link"] [data-type="ucla-wcl-wpblocks/ucla-primary-nav-link"]'
 		);
 		if (subMenuElement) {
 			detectColors(
