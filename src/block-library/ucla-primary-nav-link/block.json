@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "ucla-wcl-wpblocks/ucla-primary-nav-link",
-	"title": "Custom Link",
+	"title": "UCLA Primary Nav Link",
 	"category": "ucla-wcl-wpblocks",
 	"description": "Add a page, link, or another item to your navigation.",
 	"textdomain": "default",
@@ -37,6 +37,9 @@
 		},
 		"isTopLevelLink": {
 			"type": "boolean"
+		},
+		"variations": {
+			"type": "array"
 		}
 	},
 	"usesContext": [

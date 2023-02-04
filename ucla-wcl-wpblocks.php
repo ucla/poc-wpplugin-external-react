@@ -52,7 +52,8 @@ function create_block_ucla_wcl_blocks_block_init()
 	/** 
 	 * Standard blocks registered here. Blocks that require PHP render included below.
 	 * */
-	$block_paths = ['accordion', 'widgetone', 'widgettwo', 'widgetthree'];
+	//$block_paths = ['accordion', 'widgetone', 'widgettwo', 'widgetthree'];
+	$block_paths = ['widgetone', 'ucla-primary-nav-link',];
 
 	foreach ($block_paths as $block_path) {
 		register_block_type_from_metadata($ucla_wcl_plugin_blocks_build_dir . $block_path);
@@ -68,7 +69,7 @@ add_action('init', 'create_block_ucla_wcl_blocks_block_init');
  *   Registering through JS will cause the PHP registered callback to be ignored.
  */
 
-include_once($ucla_wcl_plugin_blocks_src_dir . 'calendar-ics-feeds/index.php');
+//include_once($ucla_wcl_plugin_blocks_src_dir . 'calendar-ics-feeds/index.php');
 include_once($ucla_wcl_plugin_blocks_src_dir . 'ucla-primary-nav/index.php');
 include_once($ucla_wcl_plugin_blocks_src_dir . 'ucla-primary-nav-link/index.php');
 include_once($ucla_wcl_plugin_blocks_src_dir . 'ucla-primary-nav-submenu/index.php');

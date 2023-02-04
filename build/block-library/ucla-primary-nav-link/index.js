@@ -1208,49 +1208,6 @@ const transforms = {
 
 /***/ }),
 
-/***/ "./src/block-library/utils/init-block.js":
-/*!***********************************************!*\
-  !*** ./src/block-library/utils/init-block.js ***!
-  \***********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ initBlock; }
-/* harmony export */ });
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/**
- * WordPress dependencies
- */
-
-
-/**
- * Function to register an individual block.
- *
- * @param {Object} block The block to be registered.
- *
- * @return {?WPBlockType} The block, if it has been successfully registered;
- *                        otherwise `undefined`.
- */
-function initBlock(block) {
-  if (!block) {
-    return;
-  }
-  const {
-    metadata,
-    settings,
-    name
-  } = block;
-  return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)({
-    name,
-    ...metadata
-  }, settings);
-}
-
-/***/ }),
-
 /***/ "./node_modules/classnames/index.js":
 /*!******************************************!*\
   !*** ./node_modules/classnames/index.js ***!
@@ -1581,7 +1538,7 @@ module.exports = window["wp"]["url"];
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"ucla-wcl-wpblocks/ucla-primary-nav-link","title":"Custom Link","category":"ucla-wcl-wpblocks","description":"Add a page, link, or another item to your navigation.","textdomain":"default","attributes":{"label":{"type":"string"},"type":{"type":"string"},"description":{"type":"string"},"rel":{"type":"string"},"id":{"type":"number"},"opensInNewTab":{"type":"boolean","default":false},"url":{"type":"string"},"title":{"type":"string"},"kind":{"type":"string"},"isTopLevelLink":{"type":"boolean"}},"usesContext":["textColor","customTextColor","backgroundColor","customBackgroundColor","overlayTextColor","customOverlayTextColor","overlayBackgroundColor","customOverlayBackgroundColor","fontSize","customFontSize","showSubmenuIcon","maxNestingLevel","style"],"supports":{"reusable":false,"html":false,"__experimentalSlashInserter":true,"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalFontWeight":true,"__experimentalFontStyle":true,"__experimentalTextTransform":true,"__experimentalTextDecoration":true,"__experimentalLetterSpacing":true,"__experimentalDefaultControls":{"fontSize":true}}},"editorScript":"file:./index.js","editorStyle":"wp-block-navigation-link-editor","style":"wp-block-navigation-link"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"ucla-wcl-wpblocks/ucla-primary-nav-link","title":"UCLA Primary Nav Link","category":"ucla-wcl-wpblocks","description":"Add a page, link, or another item to your navigation.","textdomain":"default","attributes":{"label":{"type":"string"},"type":{"type":"string"},"description":{"type":"string"},"rel":{"type":"string"},"id":{"type":"number"},"opensInNewTab":{"type":"boolean","default":false},"url":{"type":"string"},"title":{"type":"string"},"kind":{"type":"string"},"isTopLevelLink":{"type":"boolean"},"variations":{"type":"array"}},"usesContext":["textColor","customTextColor","backgroundColor","customBackgroundColor","overlayTextColor","customOverlayTextColor","overlayBackgroundColor","customOverlayBackgroundColor","fontSize","customFontSize","showSubmenuIcon","maxNestingLevel","style"],"supports":{"reusable":false,"html":false,"__experimentalSlashInserter":true,"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalFontWeight":true,"__experimentalFontStyle":true,"__experimentalTextTransform":true,"__experimentalTextDecoration":true,"__experimentalLetterSpacing":true,"__experimentalDefaultControls":{"fontSize":true}}},"editorScript":"file:./index.js","editorStyle":"wp-block-navigation-link-editor","style":"wp-block-navigation-link"}');
 
 /***/ })
 
@@ -1661,22 +1618,17 @@ var __webpack_exports__ = {};
   !*** ./src/block-library/ucla-primary-nav-link/index.js ***!
   \**********************************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "init": function() { return /* binding */ init; },
-/* harmony export */   "metadata": function() { return /* reexport default export from named module */ _block_json__WEBPACK_IMPORTED_MODULE_5__; },
-/* harmony export */   "name": function() { return /* binding */ name; },
-/* harmony export */   "settings": function() { return /* binding */ settings; }
-/* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/custom-link.js");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
-/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _utils_init_block__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/init-block */ "./src/block-library/utils/init-block.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./block.json */ "./src/block-library/ucla-primary-nav-link/block.json");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./edit */ "./src/block-library/ucla-primary-nav-link/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./save */ "./src/block-library/ucla-primary-nav-link/save.js");
@@ -1684,8 +1636,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _transforms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./transforms */ "./src/block-library/ucla-primary-nav-link/transforms.js");
 
 /**
- * WordPress dependencies
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
+
 
 
 
@@ -1694,17 +1649,20 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Internal dependencies
  */
+//import initBlock from '../utils/init-block';
 
 
 
 
 
+(0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_4__.addFilter)('blocks.registerBlockType', _block_json__WEBPACK_IMPORTED_MODULE_5__.name, _hooks__WEBPACK_IMPORTED_MODULE_8__.enhanceNavigationLinkVariations);
 
-const {
-  name
-} = _block_json__WEBPACK_IMPORTED_MODULE_5__;
-
-const settings = {
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_5__.name, {
   icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_10__["default"],
   __experimentalLabel: _ref => {
     let {
@@ -1725,7 +1683,7 @@ const settings = {
   save: _save__WEBPACK_IMPORTED_MODULE_7__["default"],
   example: {
     attributes: {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__._x)('Example Link', 'navigation link preview example'),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__._x)('Example Link', 'navigation link preview example'),
       url: 'https://example.com'
     }
   },
@@ -1768,19 +1726,11 @@ const settings = {
       };
     },
     save() {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null);
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InnerBlocks.Content, null);
     }
   }],
   transforms: _transforms__WEBPACK_IMPORTED_MODULE_9__["default"]
-};
-const init = () => {
-  (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_3__.addFilter)('blocks.registerBlockType', 'ucla-wcl-wpblocks/ucla-primary-nav-link', _hooks__WEBPACK_IMPORTED_MODULE_8__.enhanceNavigationLinkVariations);
-  return (0,_utils_init_block__WEBPACK_IMPORTED_MODULE_4__["default"])({
-    name,
-    metadata: _block_json__WEBPACK_IMPORTED_MODULE_5__,
-    settings
-  });
-};
+});
 }();
 /******/ })()
 ;
