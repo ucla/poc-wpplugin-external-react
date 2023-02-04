@@ -867,49 +867,6 @@ const transforms = {
 
 /***/ }),
 
-/***/ "./src/block-library/utils/init-block.js":
-/*!***********************************************!*\
-  !*** ./src/block-library/utils/init-block.js ***!
-  \***********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ initBlock; }
-/* harmony export */ });
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/**
- * WordPress dependencies
- */
-
-
-/**
- * Function to register an individual block.
- *
- * @param {Object} block The block to be registered.
- *
- * @return {?WPBlockType} The block, if it has been successfully registered;
- *                        otherwise `undefined`.
- */
-function initBlock(block) {
-  if (!block) {
-    return;
-  }
-  const {
-    metadata,
-    settings,
-    name
-  } = block;
-  return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)({
-    name,
-    ...metadata
-  }, settings);
-}
-
-/***/ }),
-
 /***/ "./node_modules/classnames/index.js":
 /*!******************************************!*\
   !*** ./node_modules/classnames/index.js ***!
@@ -1218,7 +1175,7 @@ module.exports = window["wp"]["url"];
 /***/ (function(module) {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"ucla-wcl-wpblocks/ucla-primary-nav-submenu","title":"Submenu","category":"ucla-wcl-wpblocks","parent":["ucla-wcl-wpblocks/ucla-primary-nav"],"description":"Add a submenu to your navigation.","textdomain":"default","attributes":{"label":{"type":"string"},"type":{"type":"string"},"description":{"type":"string"},"rel":{"type":"string"},"id":{"type":"number"},"opensInNewTab":{"type":"boolean","default":false},"url":{"type":"string"},"title":{"type":"string"},"kind":{"type":"string"},"isTopLevelItem":{"type":"boolean"}},"usesContext":["textColor","customTextColor","backgroundColor","customBackgroundColor","overlayTextColor","customOverlayTextColor","overlayBackgroundColor","customOverlayBackgroundColor","fontSize","customFontSize","showSubmenuIcon","maxNestingLevel","openSubmenusOnClick","style"],"supports":{"reusable":false,"html":false},"editorScript":"file:./index.js","editorStyle":"wp-block-navigation-submenu-editor","style":"wp-block-navigation-submenu"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"ucla-wcl-wpblocks/ucla-primary-nav-submenu","title":"UCLA Navigation Submenu","category":"ucla-wcl-wpblocks","parent":["ucla-wcl-wpblocks/ucla-primary-nav"],"description":"Add a submenu to your navigation.","textdomain":"default","attributes":{"label":{"type":"string"},"type":{"type":"string"},"description":{"type":"string"},"rel":{"type":"string"},"id":{"type":"number"},"opensInNewTab":{"type":"boolean","default":false},"url":{"type":"string"},"title":{"type":"string"},"kind":{"type":"string"},"isTopLevelItem":{"type":"boolean"}},"usesContext":["textColor","customTextColor","backgroundColor","customBackgroundColor","overlayTextColor","customOverlayTextColor","overlayBackgroundColor","customOverlayBackgroundColor","fontSize","customFontSize","showSubmenuIcon","maxNestingLevel","openSubmenusOnClick","style"],"supports":{"reusable":false,"html":false},"editorScript":"file:./index.js","editorStyle":"wp-block-navigation-submenu-editor","style":"wp-block-navigation-submenu"}');
 
 /***/ })
 
@@ -1299,13 +1256,12 @@ var __webpack_exports__ = {};
   \*************************************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "init": function() { return /* binding */ init; },
 /* harmony export */   "metadata": function() { return /* reexport default export from named module */ _block_json__WEBPACK_IMPORTED_MODULE_1__; },
-/* harmony export */   "name": function() { return /* binding */ name; },
-/* harmony export */   "settings": function() { return /* binding */ settings; }
+/* harmony export */   "name": function() { return /* binding */ name; }
 /* harmony export */ });
 /* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/add-submenu.js");
-/* harmony import */ var _utils_init_block__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/init-block */ "./src/block-library/utils/init-block.js");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./block.json */ "./src/block-library/ucla-primary-nav-submenu/block.json");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/block-library/ucla-primary-nav-submenu/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/block-library/ucla-primary-nav-submenu/save.js");
@@ -1315,10 +1271,10 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
 /**
  * Internal dependencies
  */
-
 
 
 
@@ -1327,7 +1283,7 @@ const {
   name
 } = _block_json__WEBPACK_IMPORTED_MODULE_1__;
 
-const settings = {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_1__.name, {
   icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_5__["default"],
   __experimentalLabel: _ref => {
     let {
@@ -1338,11 +1294,6 @@ const settings = {
   edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
   save: _save__WEBPACK_IMPORTED_MODULE_3__["default"],
   transforms: _transforms__WEBPACK_IMPORTED_MODULE_4__["default"]
-};
-const init = () => (0,_utils_init_block__WEBPACK_IMPORTED_MODULE_0__["default"])({
-  name,
-  metadata: _block_json__WEBPACK_IMPORTED_MODULE_1__,
-  settings
 });
 }();
 /******/ })()

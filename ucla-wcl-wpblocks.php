@@ -53,7 +53,10 @@ function create_block_ucla_wcl_blocks_block_init()
 	 * Standard blocks registered here. Blocks that require PHP render included below.
 	 * */
 	//$block_paths = ['accordion', 'widgetone', 'widgettwo', 'widgetthree'];
-	$block_paths = ['widgetone', 'ucla-primary-nav-link',];
+
+	// Not sure why primary-nav-link needs to be registered here and in PHP. El needs to investigate.
+	$block_paths = ['widgetone', 'ucla-primary-nav-link'];
+
 
 	foreach ($block_paths as $block_path) {
 		register_block_type_from_metadata($ucla_wcl_plugin_blocks_build_dir . $block_path);

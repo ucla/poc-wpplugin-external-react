@@ -2,11 +2,11 @@
  * WordPress dependencies
  */
 import { addSubmenu } from '@wordpress/icons';
+import { registerBlockType } from '@wordpress/blocks';
 
 /**
  * Internal dependencies
  */
-import initBlock from '../utils/init-block';
 import metadata from './block.json';
 import edit from './edit';
 import save from './save';
@@ -16,16 +16,14 @@ const { name } = metadata;
 
 export { metadata, name };
 
-export const settings = {
+registerBlockType(metadata.name, {
 	icon: addSubmenu,
 
-	__experimentalLabel: ( { label } ) => label,
+	__experimentalLabel: ({ label }) => label,
 
 	edit,
 
 	save,
 
 	transforms,
-};
-
-export const init = () => initBlock( { name, metadata, settings } );
+});
