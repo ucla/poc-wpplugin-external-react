@@ -135,8 +135,6 @@ function block_ucla_primary_nav_link_render_submenu_icon()
  */
 function render_block_ucla_primary_nav_link($attributes, $content, $block)
 {
-
-	echo 'render_block_ucla_primary_nav_link';
 	$navigation_link_has_id = isset($attributes['id']) && is_numeric($attributes['id']);
 	$is_post_type           = isset($attributes['kind']) && 'post-type' === $attributes['kind'];
 	$is_post_type           = $is_post_type || isset($attributes['type']) && ('post' === $attributes['type'] || 'page' === $attributes['type']);
@@ -311,46 +309,46 @@ function ucla_primary_nav_link_build_variation_for_navigation_link($entity, $kin
  * @uses render_block_core_navigation()
  * @throws WP_Error An WP_Error exception parsing the block definition.
  */
-// function register_block_ucla_primary_nav_link()
-// {
-// 	$post_types = get_post_types(array('show_in_nav_menus' => true), 'objects');
-// 	$taxonomies = get_taxonomies(array('show_in_nav_menus' => true), 'objects');
+function register_block_ucla_primary_nav_link()
+{
+	$post_types = get_post_types(array('show_in_nav_menus' => true), 'objects');
+	$taxonomies = get_taxonomies(array('show_in_nav_menus' => true), 'objects');
 
-// 	// Use two separate arrays as a way to order the variations in the UI.
-// 	// Known variations (like Post Link and Page Link) are added to the
-// 	// `built_ins` array. Variations for custom post types and taxonomies are
-// 	// added to the `variations` array and will always appear after `built-ins.
-// 	$built_ins  = array();
-// 	$variations = array();
+	// Use two separate arrays as a way to order the variations in the UI.
+	// Known variations (like Post Link and Page Link) are added to the
+	// `built_ins` array. Variations for custom post types and taxonomies are
+	// added to the `variations` array and will always appear after `built-ins.
+	$built_ins  = array();
+	$variations = array();
 
-// 	if ($post_types) {
-// 		foreach ($post_types as $post_type) {
-// 			$variation = ucla_primary_nav_link_build_variation_for_navigation_link($post_type, 'post-type');
-// 			if ($post_type->_builtin) {
-// 				$built_ins[] = $variation;
-// 			} else {
-// 				$variations[] = $variation;
-// 			}
-// 		}
-// 	}
-// 	if ($taxonomies) {
-// 		foreach ($taxonomies as $taxonomy) {
-// 			$variation = ucla_primary_nav_link_build_variation_for_navigation_link($taxonomy, 'taxonomy');
-// 			if ($taxonomy->_builtin) {
-// 				$built_ins[] = $variation;
-// 			} else {
-// 				$variations[] = $variation;
-// 			}
-// 		}
-// 	}
+	if ($post_types) {
+		foreach ($post_types as $post_type) {
+			$variation = ucla_primary_nav_link_build_variation_for_navigation_link($post_type, 'post-type');
+			if ($post_type->_builtin) {
+				$built_ins[] = $variation;
+			} else {
+				$variations[] = $variation;
+			}
+		}
+	}
+	if ($taxonomies) {
+		foreach ($taxonomies as $taxonomy) {
+			$variation = ucla_primary_nav_link_build_variation_for_navigation_link($taxonomy, 'taxonomy');
+			if ($taxonomy->_builtin) {
+				$built_ins[] = $variation;
+			} else {
+				$variations[] = $variation;
+			}
+		}
+	}
 
-// 	global $ucla_wcl_plugin_blocks_build_dir;
-// 	register_block_type_from_metadata(
-// 		$ucla_wcl_plugin_blocks_build_dir . 'ucla-primary-nav-link',
-// 		array(
-// 			'render_callback' => 'render_block_ucla_primary_nav_link',
-// 			'variations'      => array_merge($built_ins, $variations),
-// 		)
-// 	);
-// }
-// add_action('init', 'register_block_ucla_primary_nav_link');
+	global $ucla_wcl_plugin_blocks_build_dir;
+	register_block_type_from_metadata(
+		$ucla_wcl_plugin_blocks_build_dir . 'ucla-primary-nav-link',
+		array(
+			'render_callback' => 'render_block_ucla_primary_nav_link',
+			'variations'      => array_merge($built_ins, $variations),
+		)
+	);
+}
+add_action('init', 'register_block_ucla_primary_nav_link');
